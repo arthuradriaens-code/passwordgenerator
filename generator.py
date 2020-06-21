@@ -11,7 +11,11 @@ def generate():
 	#all char between 33 and 125 except 34 and 92
 	password = ""
 	for i in range(passlen.get()):
-		password += random.choice([chr(33),chr(random.randint(35,91)),chr(random.randint(93,125))])
+		randomint = random.randint(33,125)
+		if randomint != 92 and randomint != 34:
+			password += chr(randomint)
+		else:
+			password += random.choice([chr(33),chr(random.randint(35,91)),chr(random.randint(93,125))])
 	passstr.set(password)
 
 def copytoclipboard():
